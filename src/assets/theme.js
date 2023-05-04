@@ -1,46 +1,56 @@
-import { createTheme } from "@mui/material";
+import {createTheme} from "@mui/material";
 
 export const lightTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#2196f3",
+    palette: {
+        primary: {
+            main: "#2196f3",
+        },
+        secondary: {
+            main: "#7154ff",
+        },
+        text: {
+            primary: "#000",
+            secondary: "#555",
+        },
+        background: {
+            default: "#dedede",
+            paper: "#ffffff",
+        },
     },
-    secondary: {
-      main: "#f50057",
+    typography: {
+        fontFamily: "Open Sans, sans-serif",
     },
-    text: {
-      primary: "#000",
-      secondary: "#555",
+    shape: {
+        borderRadius: 26, // increase border radius for more rounding
     },
-  },
-  typography: {
-    fontFamily: "Open Sans, sans-serif",
-  },
-  shape: {
-    borderRadius: 8,
-  },
+    shadows: ["none"], // remove all drop shadows
 });
 
 export const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#2196f3",
+    palette: {
+        mode: "dark",
+        primary: {
+            main: "#2196f3",
+        },
+        secondary: {
+            main: "#7154ff",
+        },
+        text: {
+            primary: "#f2f2f2",
+            secondary: "#bbb",
+        },
+        background: {
+            default: "#212121",
+            paper: "#000000",
+        },
     },
-    secondary: {
-      main: "#f50057",
+    typography: {
+        fontFamily: "Open Sans, sans-serif",
     },
-    text: {
-      primary: "#f2f2f2",
-      secondary: "#bbb",
+    shape: {
+        borderRadius: 26, // increase border radius for more rounding
     },
-  },
-  typography: {
-    fontFamily: "Open Sans, sans-serif",
-  },
-  shape: {
-    borderRadius: 8,
-  },
+    shadows: ["none"], // remove all drop shadows
 });
 
-export default { lightTheme, darkTheme };
+
