@@ -9,11 +9,11 @@ export const lightTheme = createTheme({
             main: "#7154ff",
         },
         text: {
-            primary: "#000",
-            secondary: "#555",
+            primary: "#1f1f1f",
+            secondary: "#494949",
         },
         background: {
-            default: "#dedede",
+            default: "#e8e8e8",
             paper: "#ffffff",
         },
     },
@@ -21,7 +21,7 @@ export const lightTheme = createTheme({
         fontFamily: "Open Sans, sans-serif",
     },
     shape: {
-        borderRadius: 26, // increase border radius for more rounding
+        borderRadius: 18, // increase border radius for more rounding
     },
     shadows: ["none"], // remove all drop shadows
 });
@@ -48,7 +48,7 @@ export const darkTheme = createTheme({
         fontFamily: "Open Sans, sans-serif",
     },
     shape: {
-        borderRadius: 26, // increase border radius for more rounding
+        borderRadius: 18, // increase border radius for more rounding
     },
     shadows: ["none"], // remove all drop shadows
 });

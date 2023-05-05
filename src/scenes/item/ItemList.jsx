@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Stack from "@mui/material/Stack";
 import ItemCard from "./ItemCard.jsx";
-import {Box, IconButton, useMediaQuery} from "@mui/material";
+import {Box, IconButton, Typography, useMediaQuery} from "@mui/material";
 import {ArrowBack, ArrowForward} from "@mui/icons-material";
 
 const itemListData = [
@@ -33,31 +33,38 @@ const ItemList = () => {
 
     return (
         <>
-            {isDesktop ? (
-                <>
-                    <Box py={2} mx={3} my={4}>
-                        <Stack direction="row" spacing={2} my={2} mx={2}>
-                            {itemListData.slice(startIndex, startIndex + 4).map((item) => (
+            <Box bgcolor="background.paper" py={2} borderRadius={1}>
+                {isDesktop ? (
+                    <>
+                        <Typography variant={"h5"} mx={5}>Group title</Typography>
+                        <Box mx={3}>
+                            <Stack direction="row" spacing={2} my={2} mx={2}>
+                                {itemListData.slice(startIndex, startIndex + 4).map((item) => (
+                                    <ItemCard key={item.id} name={item.name}/>
+                                ))}
+                            </Stack>
+                            <Box display="flex" justifyContent="left" bottom="0" mt={2} mx={2}>
+                                <IconButton onClick={handlePrevClick} disabled={startIndex === 0}>
+                                    <ArrowBack/>
+                                </IconButton>
+                                <IconButton onClick={handleNextClick} disabled={startIndex === itemListData.length - 2}>
+                                    <ArrowForward/>
+                                </IconButton>
+                            </Box>
+                        </Box>
+                    </>
+                ) : (
+                    <>
+                        <Typography variant={"h5"} mx={2}>Group title</Typography>
+                        <Stack direction="row" spacing={1} sx={{maxWidth: "500px", overflowX: "scroll"}}
+                               py={3} mx={2}>
+                            {itemListData.map((item) => (
                                 <ItemCard key={item.id} name={item.name}/>
                             ))}
                         </Stack>
-                        <Box display="flex" justifyContent="left" position="sticky" bottom="0" mt={2} mx={2}>
-                            <IconButton onClick={handlePrevClick} disabled={startIndex === 0}>
-                                <ArrowBack/>
-                            </IconButton>
-                            <IconButton onClick={handleNextClick} disabled={startIndex === itemListData.length - 2}>
-                                <ArrowForward/>
-                            </IconButton>
-                        </Box>
-                    </Box>
-                </>
-            ) : (
-                <Stack direction="row" spacing={2} sx={{maxWidth: "500px", overflowX: "scroll"}} py={3} mx={1}>
-                    {itemListData.map((item) => (
-                        <ItemCard key={item.id} name={item.name}/>
-                    ))}
-                </Stack>
-            )}
+                    </>
+                )}
+            </Box>
         </>
     );
 };

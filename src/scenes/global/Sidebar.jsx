@@ -15,8 +15,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import {useDispatch, useSelector} from 'react-redux';
 import {closeSidebar} from '../../state/slices/sidebarSlice.js';
+import {useMediaQuery} from "@mui/material";
 
-const drawerWidth = 240;
+
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
     alignItems: 'center',
@@ -27,6 +28,8 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }));
 
 export default function Sidebar() {
+    const isMobile = useMediaQuery('(max-width:600px)');
+    const drawerWidth = isMobile ? '100%' : 240;
     const theme = useTheme();
     const open = useSelector(state => state.sidebar.open);
     const dispatch = useDispatch();
