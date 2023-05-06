@@ -26,7 +26,7 @@ const HomeLayout = () => {
                     <ItemList/>
                 </Item>
             </Grid>
-            <Grid xs={7}>
+            <Grid xs={12} md={7}>
                 <Item>
                     <ItemView/>
                 </Item>
